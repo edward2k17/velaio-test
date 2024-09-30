@@ -1,0 +1,18 @@
+<div class="todos-list" *ngIf="!(loading|async); else loadingTemp"></div>
+
+<div *ngFor="let todo of todos$ | async">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-checkbox [checked]="todo.completed" (change)="toggleCompletion(todo)"></mat-checkbox>
+        {{ todo.title }}
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<ng-template #loadingTemp>
+  <div class="loading-container">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+</ng-template>
