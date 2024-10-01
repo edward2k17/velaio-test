@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
-import {loadTodos, updateTodo} from "../store/todos.actions";
+import {loadTodos} from "../store/todos.actions";
 import {Store} from "@ngrx/store";
 import {TodoState} from "../store/todos.reducer";
 import {selectAllTodos, selectCompletedTodos, selectDataStatus, selectPendingTodos} from "../store/todos.selectors";
 import {map} from "rxjs";
-import {Todo} from "../todos.models";
 
 @Component({
   selector: 'app-list-page',

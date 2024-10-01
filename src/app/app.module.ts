@@ -10,7 +10,7 @@ import {todoReducer} from "./todos/store/todos.reducer";
 import {TodoEffects} from "./todos/store/todos.effects";
 import {HttpClientModule} from "@angular/common/http";
 import {TodosModule} from "./todos/todos.module";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export function initializeApp(configService: ConfigService) {
   return () => configService.loadConfig();

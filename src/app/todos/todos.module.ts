@@ -9,7 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { CreatePageComponent } from './create-page/create-page.component';
+import {CreatePageComponent} from './create-page/create-page.component';
 import {RouterLink} from "@angular/router";
 import {CreateFormComponent} from "./components/create-form/create-form.component";
 import {TodoItemComponent} from "./components/todo-item/todo-item.component";
