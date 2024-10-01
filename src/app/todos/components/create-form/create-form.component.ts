@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
   AbstractControl,
@@ -15,7 +15,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {Store} from "@ngrx/store";
-import {createTodo} from "../../store/todos.actions";
+import {createTodo, updateTodo} from "../../store/todos.actions";
+import {Todo} from "../../todos.models";
 
 @Component({
   selector: 'app-create-form',
@@ -25,8 +26,27 @@ import {createTodo} from "../../store/todos.actions";
   styleUrls: ['./create-form.component.scss']
 })
 export class CreateFormComponent {
+  get todo(): Todo | undefined | null {
+    return this._todo;
+  }
+
+  @Input()
+  set todo(value: Todo | undefined | null) {
+    this._todo = value;
+    console.log(value)
+    if (value) {
+      console.log(value);
+      this.todoForm.controls['title'].disable()
+      if (value.deadline) {
+        this.todoForm.controls['deadline'].disable()
+      }
+      this.populateForm(value)
+    }
+  }
+
   todoForm: FormGroup;
   @Output() submitted = new EventEmitter<void>();
+  private _todo: Todo | undefined | null;
 
   constructor(private fb: FormBuilder, private store: Store) {
     this.todoForm = this.fb.group({
@@ -36,16 +56,33 @@ export class CreateFormComponent {
     });
   }
 
+  populateForm(data: any) {
+    this.todoForm.patchValue({
+      title: data.title,
+      deadline: data.deadline
+    });
+
+    const peopleArray = this.todoForm.get('people') as FormArray;
+    data.people.forEach((person: any) => {
+      const personGroup = this.createPerson(person);
+      peopleArray.push(personGroup);
+    });
+  }
+
   get people(): FormArray {
     return this.todoForm.get('people') as FormArray;
   }
 
-  createPerson(): FormGroup {
+  createPerson(person: any = {fullName: '', age: '', skills: []}): FormGroup {
     return this.fb.group({
-      fullName: ['', [Validators.required, Validators.minLength(5), this.uniqueNameValidator.bind(this)]],
-      age: ['', [Validators.required, Validators.min(18)]],
-      skills: this.fb.array([this.createSkill()], this.minSkillsValidator(1))
+      fullName: [person.fullName || '', [Validators.required, Validators.minLength(5), this.uniqueNameValidator.bind(this)]],
+      age: [person.age || '', [Validators.required, Validators.min(18)]],
+      skills: this.fb.array(this.populateSkills(person.skills), this.minSkillsValidator(1))
     });
+  }
+
+  populateSkills(skills: string[]): FormControl[] {
+    return (skills && skills.length > 0) ? skills.map(skill => this.fb.control(skill, Validators.required)) : [this.createSkill()];
   }
 
   createSkill(): FormControl {
@@ -99,7 +136,10 @@ export class CreateFormComponent {
 
   onSubmit() {
     if (this.todoForm.valid) {
-      this.store.dispatch(createTodo({todo: {...this.todoForm.value, completed: false}}))
+      this.store.dispatch(
+        this.todo ? updateTodo(
+          {todo: {...this.todo, ...this.todoForm.value}}) : createTodo(
+          {todo: {...this.todoForm.value, completed: false}}))
       this.submitted.emit()
     } else {
       console.log("Wrong data");
@@ -109,4 +149,6 @@ export class CreateFormComponent {
   skillControls(person: AbstractControl) {
     return (person.get('skills') as FormArray).controls
   }
+
+
 }

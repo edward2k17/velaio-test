@@ -1,4 +1,3 @@
-// Cargar tareas
 import {createAction, props} from "@ngrx/store";
 import {CreateTodo, Todo, UpdateTodo} from "../todos.models";
 
@@ -41,8 +40,3 @@ export const updateTodoFailure = createAction(
   '[Todo] Update Todo Failure',
   props<{ error: any }>()
 );
-
-// export const toggleTodoStatus = createAction(
-//   '[Todo] Toggle Todo Status',
-//   props<{ todoId: number }>()
-// );

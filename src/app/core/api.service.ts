@@ -20,6 +20,7 @@ export class ApiService {
   }
 
   put<T>(relativeUrl: string, data: Partial<T>) {
+    console.log(data);
     return this.http.put<T>(`${this.configService.apiUrl}/${relativeUrl}`, data);
   }
 }

@@ -186,6 +186,24 @@
         </context-group>
         <note priority="1" from="description">associated-persons</note>
       </trans-unit>
+      <trans-unit id="2327200960251812209" datatype="html">
+        <source>Create new Todo</source>
+        <target>Crear Nueva Tarea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/create-page/create-page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">create-title</note>
+      </trans-unit>
+      <trans-unit id="107105164104365838" datatype="html">
+        <source>Modify Todo</source>
+        <target>Modificar Tarea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/create-page/create-page.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">modify-title</note>
+      </trans-unit>
        <trans-unit id="8814297195783961848" datatype="html">
             <source>Todo List</source>
             <target>Lista de Tareas</target>

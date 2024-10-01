@@ -21,7 +21,7 @@ export const todoReducer = createReducer(
   on(TodoActions.loadTodos, (state) => ({...state, loadStatus: 'loading' as dataStatus})),
   on(TodoActions.loadTodosSuccess, (state, {todos}) => ({
     ...state,
-    todos: [...todos, ...state.todos.filter(t => t.id > 200)],
+    todos: [...todos.map(t => state.todos.find(s => s.id == t.id) ?? t), ...state.todos.filter(t => t.id > 200)],
     loadStatus: 'success' as dataStatus
   })),
   on(TodoActions.loadTodosFailure, (state, {error}) => ({...state, error, loadStatus: 'error' as dataStatus})),

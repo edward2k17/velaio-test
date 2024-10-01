@@ -2,6 +2,7 @@
   <button mat-icon-button routerLink="/list">
     <mat-icon>arrow_back</mat-icon>
   </button>
-  <span i18n="list-title">Crear Nueva Tarea</span>
+  <span i18n="create-title" *ngIf="!(todo$|async)">Create new Todo</span>
+  <span i18n="modify-title" *ngIf="todo$|async">Modify Todo</span>
 </mat-toolbar>
-<app-create-form (submitted)="formSubmitted()"></app-create-form>
+<app-create-form (submitted)="formSubmitted()" [todo]="todo$|async"></app-create-form>
