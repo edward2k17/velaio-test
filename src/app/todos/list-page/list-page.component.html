@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="title-bar">
   <span i18n="list-title">Todo List</span>
   <span class="bar-spacer"></span>
   <button mat-icon-button routerLink="/create">
@@ -7,23 +7,18 @@
 </mat-toolbar>
 
 <div class="todos-list" *ngIf="!(loading|async); else loadingTemp">
-  <mat-button-toggle-group name="completed" aria-label="completed todos" [(ngModel)]="filter">
-    <mat-button-toggle value="all" i18n="filter-all">All</mat-button-toggle>
-    <mat-button-toggle value="completed" i18n="filter-completed">Completed</mat-button-toggle>
-    <mat-button-toggle value="pending" i18n="filter-pending">Pending</mat-button-toggle>
-  </mat-button-toggle-group>
-
-
-  <div *ngFor="let todo of todos$ | async">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <mat-checkbox [checked]="todo.completed" (change)="toggleCompletion(todo)"></mat-checkbox>
-          {{ todo.title }}
-        </mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
+  <mat-toolbar class="filter-bar">
+    <mat-button-toggle-group name="completed" aria-label="completed todos" [(ngModel)]="filter">
+      <mat-button-toggle value="all" i18n="filter-all">All</mat-button-toggle>
+      <mat-button-toggle value="completed" i18n="filter-completed">Completed</mat-button-toggle>
+      <mat-button-toggle value="pending" i18n="filter-pending">Pending</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-toolbar>
+  <ol>
+    <li *ngFor="let todo of todos$ | async">
+      <app-todo-item [todo]="todo"></app-todo-item>
+    </li>
+  </ol>
 </div>
 <ng-template #loadingTemp>
   <div class="loading-container">

@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <mat-checkbox [checked]="todo.completed" (change)="toggleCompletion(todo)"></mat-checkbox>
+      {{ todo.title }}
+      <span class="deadline" *ngIf="todo.deadline">- {{ todo.deadline }}</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <div mat-subheader i18n="associated-persons" *ngIf="todo.people && todo.people.length">Associated persons:</div>
+      <mat-list-item *ngFor="let person of todo.people">
+        <mat-icon matListItemIcon>remove</mat-icon>
+        <div matListItemTitle>{{ person.fullName }} ({{ person.age }})</div>
+        <div matListItemLine><span i18n="associated-skill">Skills</span>
+          <mat-chip-set >
+            <mat-chip *ngFor="let skill of person.skills">
+              {{ skill }}
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

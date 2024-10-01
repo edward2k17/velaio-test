@@ -117,7 +117,11 @@
           <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
           <context context-type="linenumber">58</context>
         </context-group>
-        <note priority="1" from="description">form-skills-title</note>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/todo-item/todo-item.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+          <note priority="1" from="description">form-skills-title</note>
       </trans-unit>
       <trans-unit id="6387879863897234206" datatype="html">
         <source>Skill</source>
@@ -172,6 +176,15 @@
           <context context-type="linenumber">91,93</context>
         </context-group>
         <note priority="1" from="description">form-save-todo</note>
+      </trans-unit>
+      <trans-unit id="6736024672462768980" datatype="html">
+        <source>Associated persons:</source>
+        <target>Personas Asociadas:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/todo-item/todo-item.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">associated-persons</note>
       </trans-unit>
        <trans-unit id="8814297195783961848" datatype="html">
             <source>Todo List</source>

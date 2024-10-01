@@ -12,6 +12,11 @@ mat-card {
   max-width: 600px;
 }
 
+button.remove-person,
 button[type=submit] {
   margin-top: 1rem;
+}
+
+button.remove-person {
+  margin-bottom: 1rem;
 }

@@ -37,7 +37,5 @@ export class ListPageComponent {
     return this.loading$.pipe(map(status => status == 'loading'))
   }
 
-  toggleCompletion(todo: Todo) {
-    this.store.dispatch(updateTodo({todo: {...todo, completed: !todo.completed}}))
-  }
+
 }

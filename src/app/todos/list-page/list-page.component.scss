@@ -8,3 +8,31 @@
   align-items: center;
   height: 100vh;
 }
+
+ol {
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+mat-toolbar {
+  position: fixed;
+  z-index: 1;
+
+  &.title-bar {
+    top: 0;
+  }
+
+  &.filter-bar {
+    top: 64px;
+  }
+}
+
+.todos-list {
+  margin-top: 64px;
+  position: relative;
+
+  ol {
+    margin-top: 128px;
+  }
+}
