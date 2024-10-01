@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1616102757855967475" datatype="html">
+        <source>All</source>
+        <target>Todas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/list-page/list-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">filter-all</note>
+      </trans-unit>
+      <trans-unit id="1161299114153631702" datatype="html">
+        <source>Completed</source>
+        <target>Completadas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/list-page/list-page.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">filter-completed</note>
+      </trans-unit>
+      <trans-unit id="4416413576346763682" datatype="html">
+        <source>Pending</source>
+        <target>Pendientes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/list-page/list-page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">filter-pending</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

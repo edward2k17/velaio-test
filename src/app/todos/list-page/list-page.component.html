@@ -1,16 +1,22 @@
-<div class="todos-list" *ngIf="!(loading|async); else loadingTemp"></div>
+<div class="todos-list" *ngIf="!(loading|async); else loadingTemp">
+  <mat-button-toggle-group name="completed" aria-label="completed todos" [(ngModel)]="filter">
+    <mat-button-toggle value="all" i18n="filter-all">All</mat-button-toggle>
+    <mat-button-toggle value="completed" i18n="filter-completed">Completed</mat-button-toggle>
+    <mat-button-toggle value="pending" i18n="filter-pending">Pending</mat-button-toggle>
+  </mat-button-toggle-group>
 
-<div *ngFor="let todo of todos$ | async">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        <mat-checkbox [checked]="todo.completed" (change)="toggleCompletion(todo)"></mat-checkbox>
-        {{ todo.title }}
-      </mat-card-title>
-    </mat-card-header>
-  </mat-card>
+
+  <div *ngFor="let todo of todos$ | async">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <mat-checkbox [checked]="todo.completed" (change)="toggleCompletion(todo)"></mat-checkbox>
+          {{ todo.title }}
+        </mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>
 </div>
-
 <ng-template #loadingTemp>
   <div class="loading-container">
     <mat-spinner color="primary"></mat-spinner>

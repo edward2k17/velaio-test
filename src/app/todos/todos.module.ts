@@ -4,6 +4,8 @@ import {ListPageComponent} from './list-page/list-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import {MatCardModule} from "@angular/material/card";
     MatProgressSpinnerModule,
     MatCheckboxModule,
     MatCardModule,
+    MatButtonToggleModule,
+    FormsModule,
   ]
 })
 export class TodosModule {

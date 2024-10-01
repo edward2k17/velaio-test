@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {loadTodos, updateTodo} from "../store/todos.actions";
 import {Store} from "@ngrx/store";
 import {TodoState} from "../store/todos.reducer";
-import {selectAllTodos, selectDataStatus} from "../store/todos.selectors";
+import {selectAllTodos, selectCompletedTodos, selectDataStatus, selectPendingTodos} from "../store/todos.selectors";
 import {map} from "rxjs";
 import {Todo} from "../todos.models";
 
@@ -12,10 +12,21 @@ import {Todo} from "../todos.models";
   styleUrls: ['./list-page.component.scss']
 })
 export class ListPageComponent {
-  protected todos$ = this.store.select(selectAllTodos);
   protected loading$ = this.store.select(selectDataStatus)
+  filter: 'all' | 'pending' | 'completed' = 'all';
 
   constructor(private store: Store<{ todos: TodoState }>) {
+  }
+
+  get todos$() {
+    switch (this.filter) {
+      case "completed":
+        return this.store.select(selectCompletedTodos);
+      case "pending":
+        return this.store.select(selectPendingTodos);
+      default:
+        return this.store.select(selectAllTodos);
+    }
   }
 
   ngOnInit() {
