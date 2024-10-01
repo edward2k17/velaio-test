@@ -19,7 +19,11 @@ export const initialState: TodoState = {
 export const todoReducer = createReducer(
   initialState,
   on(TodoActions.loadTodos, (state) => ({...state, loadStatus: 'loading' as dataStatus})),
-  on(TodoActions.loadTodosSuccess, (state, {todos}) => ({...state, todos, loadStatus: 'success' as dataStatus})),
+  on(TodoActions.loadTodosSuccess, (state, {todos}) => ({
+    ...state,
+    todos: [...todos, ...state.todos.filter(t => t.id > 200)],
+    loadStatus: 'success' as dataStatus
+  })),
   on(TodoActions.loadTodosFailure, (state, {error}) => ({...state, error, loadStatus: 'error' as dataStatus})),
   on(TodoActions.createTodo, (state) => ({...state, createStatus: 'loading' as dataStatus})),
   on(TodoActions.createTodoSuccess, (state, {todo}) => ({
@@ -35,10 +39,4 @@ export const todoReducer = createReducer(
     ),
   })),
   on(TodoActions.updateTodoFailure, (state, {error}) => ({...state, error, createStatus: 'error' as dataStatus})),
-  // on(TodoActions.toggleTodoStatus, (state, {todoId}) => ({
-  //   ...state,
-  //   todos: state.todos.map(todo =>
-  //     todo.id === todoId ? {...todo, completed: !todo.completed} : todo
-  //   ),
-  // }))
 );

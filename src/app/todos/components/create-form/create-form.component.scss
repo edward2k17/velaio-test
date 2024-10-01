@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+mat-list {
+  --mdc-list-list-item-one-line-container-height: auto;
+}
+
+mat-card {
+  min-width: 340px;
+  max-width: 600px;
+}
+
+button[type=submit] {
+  margin-top: 1rem;
+}

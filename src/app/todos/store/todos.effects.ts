@@ -22,6 +22,17 @@ export class TodoEffects {
       )
     )
   );
+  createTodos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodoActions.createTodo),
+      mergeMap((data) =>
+        this.apiService.post<Todo>(`todos`, {...data.todo}).pipe(
+          map((todo) => TodoActions.createTodoSuccess({todo})),
+          catchError((error) => of(TodoActions.createTodoFailure({error})))
+        )
+      )
+    )
+  );
   updateTodos$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TodoActions.updateTodo),

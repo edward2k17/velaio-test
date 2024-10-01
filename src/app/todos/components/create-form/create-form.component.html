@@ -1,0 +1,100 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-form-field appearance="fill">
+      <mat-label i18n="form-todo-name">Todo name</mat-label>
+      <input matInput formControlName="title"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label i18n="form-deadline">Deadline</mat-label>
+      <input matInput formControlName="deadline" type="date"/>
+      <mat-error *ngIf="todoForm.get('taskDeadline')?.hasError('required')"
+                 i18n="form-deadline-required">
+        Deadline required
+      </mat-error>
+      <mat-error *ngIf="todoForm.get('taskDeadline')?.hasError('invalidDate')"
+                 i18n="form-deadline-format">
+        Deadline format is wrong
+      </mat-error>
+    </mat-form-field>
+
+
+    <div formArrayName="people">
+      <mat-list>
+        <mat-list-item *ngFor="let person of people.controls; let i = index" [formGroupName]="i">
+          <mat-card>
+            <h3 i18n="form-person-index">Person {{ i + 1 }}</h3>
+
+            <mat-form-field appearance="fill">
+              <mat-label i18n="form-full-name">Full name</mat-label>
+              <input matInput formControlName="fullName"/>
+              <mat-error *ngIf="person.get('fullName')?.hasError('required')"
+                         i18n="form-name-required">
+                Name required
+              </mat-error>
+              <mat-error *ngIf="person.get('fullName')?.hasError('minlength')"
+                         i18n="form-name-lenght">
+                Name must have 5 characters
+              </mat-error>
+              <mat-error *ngIf="person.get('fullName')?.hasError('uniqueName')"
+                         i18n="form-name-used">
+                This name was used
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label i18n="form-age">Age</mat-label>
+              <input matInput formControlName="age" type="number"/>
+              <mat-error *ngIf="person.get('age')?.hasError('required')"
+                         i18n="form-age-required">
+                Age required
+              </mat-error>
+              <mat-error *ngIf="person.get('age')?.hasError('min')"
+                         i18n="form-age-18">
+                Age must be equal or grater than 18 year old
+              </mat-error>
+            </mat-form-field>
+
+            <div formArrayName="skills">
+              <h4 i18n="form-skills-title">Skills</h4>
+              <mat-error *ngIf="person.get('skills')?.hasError('minSkills')"
+                         i18n="form-one-skill">
+                Must have at least one skill
+              </mat-error>
+              <mat-list>
+                <mat-list-item *ngFor="let skill of skillControls(person); let j = index">
+                  <mat-form-field appearance="fill">
+                    <mat-label i18n="form-skill">Skill</mat-label>
+                    <input matInput [formControlName]="j"/>
+                  </mat-form-field>
+                  <button mat-icon-button color="warn" (click)="removeSkill(i, j)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-list-item>
+              </mat-list>
+
+              <button mat-raised-button color="primary" type="button" (click)="addSkill(i)"
+                      i18n="form-add-skill">
+                Add skill
+              </button>
+            </div>
+
+            <button mat-raised-button color="warn" type="button" (click)="removePerson(i)"
+                    i18n="form-delete-person">
+              Delete person
+            </button>
+          </mat-card>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <button mat-raised-button color="primary" type="button" (click)="addPerson()"
+            i18n="form-add-person">
+      Add person
+    </button>
+
+    <button mat-raised-button color="accent" type="submit"
+            i18n="form-save-todo">
+      Save Todo
+    </button>
+  </mat-card>
+</form>

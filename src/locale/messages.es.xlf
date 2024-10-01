@@ -2,6 +2,177 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="325856129134379331" datatype="html">
+        <source>Todo name</source>
+        <target>Nombre de la Tarea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">form-todo-name</note>
+      </trans-unit>
+      <trans-unit id="3108168000666137165" datatype="html">
+        <source>Deadline</source>
+        <target>Fecha Límite de la Tarea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">form-deadline</note>
+      </trans-unit>
+      <trans-unit id="3866974557852767333" datatype="html">
+        <source> Deadline required </source>
+        <target>La fecha límite es obligatoria.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+        <note priority="1" from="description">form-deadline-required</note>
+      </trans-unit>
+      <trans-unit id="1040053925366397410" datatype="html">
+        <source> Deadline format is wrong </source>
+        <target>La fecha debe estar en formato YYYY-MM-DD.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="description">form-deadline-format</note>
+      </trans-unit>
+      <trans-unit id="8717842175712346964" datatype="html">
+        <source>Person <x id="INTERPOLATION" equiv-text="{{ i + 1 }}"/></source>
+        <target>Persona <x id="INTERPOLATION" equiv-text="{{ i + 1 }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">form-person-index</note>
+      </trans-unit>
+      <trans-unit id="8301535046747035390" datatype="html">
+        <source>Full name</source>
+        <target>Nombre Completo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">form-full-name</note>
+      </trans-unit>
+      <trans-unit id="6547696461546837820" datatype="html">
+        <source> Name required </source>
+        <target>El nombre es obligatorio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
+        <note priority="1" from="description">form-name-required</note>
+      </trans-unit>
+      <trans-unit id="1652286118354945235" datatype="html">
+        <source> Name must have 5 characters </source>
+        <target>El nombre debe tener al menos 5 caracteres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+        <note priority="1" from="description">form-name-lenght</note>
+      </trans-unit>
+      <trans-unit id="8658551025745364082" datatype="html">
+        <source> This name was used </source>
+        <target>El nombre ya está en uso</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+        <note priority="1" from="description">form-name-used</note>
+      </trans-unit>
+      <trans-unit id="1130652265542107236" datatype="html">
+        <source>Age</source>
+        <target>Edad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">form-age</note>
+      </trans-unit>
+      <trans-unit id="485088175205544884" datatype="html">
+        <source> Age required </source>
+        <target>La edad es obligatoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+        <note priority="1" from="description">form-age-required</note>
+      </trans-unit>
+      <trans-unit id="8305012089061225143" datatype="html">
+        <source> Age must be equal or grater than 18 year old </source>
+        <target>La persona debe ser mayor de 18 años</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+        <note priority="1" from="description">form-age-18</note>
+      </trans-unit>
+      <trans-unit id="4342625008558026850" datatype="html">
+        <source>Skills</source>
+        <target>Habilidades</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">form-skills-title</note>
+      </trans-unit>
+      <trans-unit id="6387879863897234206" datatype="html">
+        <source>Skill</source>
+        <target>Habilidad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">form-skill</note>
+      </trans-unit>
+      <trans-unit id="4309497083380151675" datatype="html">
+              <source> Must have at least one skill </source>
+              <target> Debe tener al menos una habilidad </target>
+              <context-group purpose="location">
+                <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+                <context context-type="linenumber">65,67</context>
+              </context-group>
+              <note priority="1" from="description">form-one-skill</note>
+            </trans-unit>
+      <trans-unit id="6243854977411179523" datatype="html">
+        <source> Add skill </source>
+        <target>Añadir Habilidad</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">71,73</context>
+        </context-group>
+        <note priority="1" from="description">form-add-skill</note>
+      </trans-unit>
+      <trans-unit id="7523424049684133742" datatype="html">
+        <source> Delete person </source>
+        <target>Eliminar Persona</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">77,79</context>
+        </context-group>
+        <note priority="1" from="description">form-delete-person</note>
+      </trans-unit>
+      <trans-unit id="3941452791523207037" datatype="html">
+        <source> Add person </source>
+        <target>Añadir Persona</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">86,88</context>
+        </context-group>
+        <note priority="1" from="description">form-add-person</note>
+      </trans-unit>
+      <trans-unit id="7557656938049519013" datatype="html">
+        <source> Save Todo </source>
+        <target>Guardar Tarea</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todos/components/create-form/create-form.component.html</context>
+          <context context-type="linenumber">91,93</context>
+        </context-group>
+        <note priority="1" from="description">form-save-todo</note>
+      </trans-unit>
        <trans-unit id="8814297195783961848" datatype="html">
             <source>Todo List</source>
             <target>Lista de Tareas</target>

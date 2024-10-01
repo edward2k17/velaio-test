@@ -3,13 +3,14 @@ import {People} from "../people/people.models";
 
 export interface CreateTodo {
   title: string;
-  limitDate: string;
+  deadline: string;
+  people?: People[];
 }
 
 export interface UpdateTodo {
   id: number;
   title?: string;
-  limitDate?: string;
+  deadline?: string;
   completed?: boolean;
   people?: People[];
 }
@@ -17,7 +18,7 @@ export interface UpdateTodo {
 export interface Todo {
   id: number;
   title: string;
-  limitDate?: string;
+  deadline?: string;
   completed: boolean;
   people: People[];
 }

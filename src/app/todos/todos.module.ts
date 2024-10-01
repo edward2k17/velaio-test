@@ -11,6 +11,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { CreatePageComponent } from './create-page/create-page.component';
 import {RouterLink} from "@angular/router";
+import {CreateFormComponent} from "./components/create-form/create-form.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {RouterLink} from "@angular/router";
     MatIconModule,
     MatToolbarModule,
     RouterLink,
+    CreateFormComponent,
   ]
 })
 export class TodosModule {

@@ -1,3 +1,5 @@
-export interface People{
-
+export interface People {
+  fullName: string;
+  age: number;
+  skills: string[];
 }
