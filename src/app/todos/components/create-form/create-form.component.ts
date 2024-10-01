@@ -33,9 +33,7 @@ export class CreateFormComponent {
   @Input()
   set todo(value: Todo | undefined | null) {
     this._todo = value;
-    console.log(value)
     if (value) {
-      console.log(value);
       this.todoForm.controls['title'].disable()
       if (value.deadline) {
         this.todoForm.controls['deadline'].disable()
@@ -63,10 +61,11 @@ export class CreateFormComponent {
     });
 
     const peopleArray = this.todoForm.get('people') as FormArray;
-    data.people.forEach((person: any) => {
-      const personGroup = this.createPerson(person);
-      peopleArray.push(personGroup);
-    });
+    if (data.people)
+      data.people.forEach((person: any) => {
+        const personGroup = this.createPerson(person);
+        peopleArray.push(personGroup);
+      });
   }
 
   get people(): FormArray {
@@ -115,10 +114,17 @@ export class CreateFormComponent {
 
   uniqueNameValidator(control: FormControl): { [key: string]: boolean } | null {
     const fullName = control.value;
-    const peopleArray = this.people.value;
+
+    const peopleArray = (control.parent?.parent as FormArray)?.value;
+
+    if (!peopleArray || !Array.isArray(peopleArray)) {
+      return null;
+    }
+
+    const currentIndex = control.parent ? (control.parent?.parent as FormArray).controls.indexOf(control.parent) : -1;
 
     const duplicateName = peopleArray.some((person: any, index: number) => {
-      return person.fullName === fullName;
+      return index !== currentIndex && person.fullName === fullName;
     });
 
     return duplicateName ? {uniqueName: true} : null;
